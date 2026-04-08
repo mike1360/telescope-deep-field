@@ -1,0 +1,16 @@
+[Unit]
+Description=USB Video Looper
+After=graphical.target
+Wants=graphical.target
+
+[Service]
+Type=simple
+User=telescope
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/telescope/.Xauthority
+ExecStart=/usr/local/bin/play-usb-videos.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target
